@@ -1,7 +1,7 @@
 # Python
-KaleidaTool_v5 -- Automation Programs.
+webCrawlAutomationKHTool -- Automation Programs.
 Used in KH Environment to automate day-to-day task
 
 
-patientPortal
+patientPortal -- Automation Programs.
 Used to process invites from excel file
