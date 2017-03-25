@@ -29,12 +29,6 @@ from openpyxl import load_workbook
 #from mechanize import Browser
 from mechanicalsoup import browser
 
-#file = "C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\Kaleida Tools\\TEST\\551-600dof.xlsx"
-
-#wb = load_workbook(file)
-#sheet = wb.active
-
-
 class App(tk.Frame):
     def __init__(self, master):
         # Grid Layout for Buttons
@@ -56,11 +50,9 @@ class App(tk.Frame):
     def page_is_loaded(driver):
         return driver.find_element_by_tag_name("body") != None
 
-    def patientPortal(self):
-        #portal = "https://cernercare.com/accounts/login?returnTo=https%3A%2F%2Fprovider.iqhealth.com%2Fsession-api%2Fprotocol%2Fopenid2%2Fsso%3FlookupId%3DeyJpZCI6ImE1YTFlNGY0LWYwYTAtNGM5Yy1iNjAwLTZlNDU4NWQ2MTY5OSIsInRhcmdldFJvb3QiOiJodHRwczovL3Byb3ZpZGVyLmlxaGVhbHRoLmNvbS8iLCJ0aW1lIjoiMjAxNi0xMC0yMVQxNjo1NDo0OC44OTlaIiwicmVhbG1JZCI6Il8zcjJkYWh6MWJwVUNYNHJrWGp2aG9maTBsMXpjYmpTIn0#"
-        portal = 'https://provider.iqhealth.com/session-api/realm/_3r2dahz1bpUCX4rkXjvhofi0l1zcbjs'
-
-        file = "C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\Kaleida Tools\\TEST\\551-600dof.xlsx"
+    def patientPortal(self):       
+        portal = '<Login WebPage>'
+        file = "<File Path>\\551-600dof.xlsx"
         wb = load_workbook(file)
         sheet = wb.active
 
@@ -75,7 +67,7 @@ class App(tk.Frame):
         #wait.until(page_is_loaded())
         #username_field = firefox_driver.find_element_by_css_selector("#authUsername")
         #username_field.click()
-        #username_field.send_keys("dforbes@kaleidahealth.org")
+        #username_field.send_keys("username")
         # FireFox
 
         # Chrome
@@ -97,8 +89,6 @@ class App(tk.Frame):
 
         time.sleep(2)
         # Chrome
-
-        #file = "C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\Kaleida Tools\\TEST\\551-600dof.xlsx"
 
         #TODO: Parse web form
         sheet.columns[1]
@@ -127,7 +117,8 @@ class App(tk.Frame):
 
             #TODO: Implement Security Questions - Select Patient Postal Code
             secQuestion = chrome_driver.find_element_by_xpath("//select[@id='id_security_question']/option[9]").click()
-            #TODO: Error Check if no Postal Code
+           
+	    #TODO: Error Check if no Postal Code
 
             #TODO: Select Postal Code from Excel
             #zipDone = True
@@ -202,13 +193,8 @@ class App(tk.Frame):
             #usrName = chrome_driver.find_element_by_xpath(".//a[/html/body/section/div/div/div/div[2]/div[2]/ul/li/div[1]/h3/a]")
             #usrName.click()
 
-
-        # TEST
-
-
-        # Issue with logging into page
+	# Issue with logging into page
         # http: // stackoverflow.com / questions / 21330079 / i - o - exception - and -unable - to - find - element - in -ie - using - selenium - webdriver / 21373224  # 21373224
-
 
         # TODO: Click Sign in
 
@@ -226,7 +212,7 @@ class App(tk.Frame):
 
 """
     def emailAddr(self):
-        file = "C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\Kaleida Tools\\TEST\\551-600dof.xlsx"
+        file = "<File Path>\\551-600dof.xlsx"
         wb = load_workbook(file)
         sheet = wb.active
 
@@ -249,7 +235,7 @@ class App(tk.Frame):
             print("EMAIL ADDRESS")
 
     def zipCode(self):
-        file = "C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\Kaleida Tools\\TEST\\551-600dof.xlsx"
+        file = "<File Path>\\551-600dof.xlsx"
         wb = load_workbook(file)
         sheet = wb.active
 
@@ -287,25 +273,11 @@ class App(tk.Frame):
                 proc.kill()
 """
 
-        # TODO:
-
-
-# TODO:
-# TODO:
-# TODO:
-
-# TODO:
-# TODO:
-# TODO:
-# TODO:
-# TODO:
-
-
 def main():
 
 	root = Tk()
 	# ----- Windows Details
-	root.title("** Kaleida Login **")
+	root.title("** Login **")
 	root.resizable(True,True)
 	root.geometry("400x300")
 	root.configure(background = '#006A85') #'005A85'
