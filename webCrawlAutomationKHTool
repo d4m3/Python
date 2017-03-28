@@ -847,13 +847,13 @@ class App(tk.Frame):
 		#print('gmail logging in')
 
 		# Dummy Account
-		smtpObj.login('pytonlogin','Th1sp@ssw0rdfort35Ting')
+		smtpObj.login('<Username>','<Password>')
 
 		#print('*'*10)
 		#print('Login completed')
 		#print('Sending Email')
 		# Forward emails to this account
-		smtpObj.sendmail('pythonlogin', 'damianforjobs@gmail.com','Subject: Issue Submitted\n'
+		smtpObj.sendmail('Username', '<email>@gmail.com','Subject: Issue Submitted\n'
 							+'\nName: '+str(nameInfo)+'\nEmail Address: '+str(emaiAddress)+'\nPhone Number:' + str(phone)
 							+'\n\nComments:\n '+str(comment))
 		#print("Comments sent")
@@ -952,23 +952,7 @@ class App(tk.Frame):
 		ttk.Radiobutton(master, text = 'Lastname, Firstname',command = lambda:self.acwData(), variable = v, value=10).grid(row=3,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)	
 		ttk.Radiobutton(master, text = 'None', command = lambda:self.acwData(), variable = v, value=11).grid(row=3,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
 	
-		mainloop()
-		# Select Anaylst			
-
-		# Implement a DB to read current ACW times
-		# Separate script to run for these numbers (i.e Metrics excel data, conver to Access?)
-		# Open in separate window?
-		# Using downloaded CMS reports
-		# Pull the xls. data into pandas and convert to xlsx
-
-		##file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_Report.xlsx'
-			
-# WIP
-# TODO: infoclique password reset
-#		Use JavaScript Selector feature Section 8 essential JS training
-	
-
-
+		mainloop()			
 
 def main():
 	root = Tk()
