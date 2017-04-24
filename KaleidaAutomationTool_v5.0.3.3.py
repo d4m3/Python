@@ -587,9 +587,6 @@ class App(tk.Frame):
 			time.sleep(1) #2
 			search.clear()
 			entryBox.delete(0,'end')
-
-			# Edit field hidden need to  hightlight
-			# http://stackoverflow.com/questions/8252558/is-there-a-way-to-perform-a-mouseover-hover-over-an-element-using-selenium-and
 			
 			# Hidden Menu
 			hidden_submenu = chrome_driver.find_element_by_xpath("//*[@id='userTable']/tbody/tr/td[2]/div[1]")
@@ -611,16 +608,7 @@ class App(tk.Frame):
 				for proc in psutil.process_iter():
 					if proc.name() == PROCNAME:
 						proc.kill()
-			
-			# else:
-			# 	messagebox.showinfo(title='Imprivata Cortext', message = 'No Username available!\nPlease notify Cortext administrator')
-			# 	chrome_driver.close()
-			# 	time.sleep(10)
-			# 	PROCNAME = "chromedriver.exe"
-			# 	for proc in psutil.process_iter():
-			# 		if proc.name() == PROCNAME:
-			# 			proc.kill()
-			
+				
 			# TEST Action Chain, double click > right-click > copy
 			actionDoubleClick = ActionChains(chrome_driver).move_to_element(cortextUsername)
 			actionDoubleClick.double_click(cortextUsername).perform()
@@ -664,13 +652,6 @@ class App(tk.Frame):
 			adminPassword = chrome_driver.find_element_by_xpath("//*[@id='currentPassword']")
 			adminPassword.send_keys(pswdBox)
 
-			# TEST -- Not able to email and print
-			# SEND USER THE EMAIL FOR PASSWORD RESET
-			#emailPWD = chrome_driver.find_element_by_xpath("//*[@id='emailResetCodeBtn']").click()
-			# TEST
-
-			#time.sleep(10)
-
 			# Click Print
 			printPassword = chrome_driver.find_element_by_xpath("//*[@id='printResetCodeBtn']").click()
 			######################################### RESET PASSWORD COMPLETED ######################################### 
@@ -703,7 +684,7 @@ class App(tk.Frame):
 			copy_and_paste_password.withdraw()
 			capp = copy_and_paste_password.clipboard_get()
 			
-			# REGEX TO MATCH PAASWORD LENGHT (Automate the boring stuff Lesson 29)
+			# REGEX TO MATCH PAASWORD LENGTH (Automate the boring stuff Lesson 29)
 			# 12 letters and 1 number Format of password: ABCDEFGHIJKL1 
 			# TODO: Create a regex for all capital leeter
 			#resetPass = re.compile (r'?<![^A-Z])')
@@ -718,12 +699,9 @@ class App(tk.Frame):
 			cortextAppPassword = (''.join(pW))
 			cortextAppUsername = capu
 
-			#time.sleep(1)
 			# Close password page
 			chrome_driver.close()
-			
-			
-			
+						
 			time.sleep(1)
 
 			# Switch to origanl page and close
@@ -737,10 +715,13 @@ class App(tk.Frame):
 					proc.kill()
 			
 			time.sleep(1) #2
-			#------------------------ CORTEXT APPLICATION --- RESET PASSWORD VIA LAUNCHING APPLICATIO/SEND USER THE EMAIL FOR PASSWORD RESET -----------------------
+			#------------------------ 
+			# CORTEXT APPLICATION --- RESET PASSWORD VIA LAUNCHING APPLICATION
+			# OR SEND USER THE EMAIL FOR PASSWORD RESET 
+			#-----------------------
 			app = Application()
 			app.start(r"C:\Program Files (x86)\Imprivata\Cortext\Cortext.exe")
-			#cortextApp = app.window_(title_re='.*Imprivata Cortext - Sign In.*')
+			
 			cortextApp = app.window_(title_re='.*Imprivata Cortext*')
 			cortextApp.SetFocus()
 			# Username
@@ -802,8 +783,8 @@ class App(tk.Frame):
 		searchApp.geometry("400x125")
 		searchApp.resizable(False,False)
 
-		Label(searchApp, text="(dforbes)Admin Username: ").grid(row=0)
-		Label(searchApp, text="(hint:%)Admin Password: ").grid(row=1)
+		Label(searchApp, text="(jsmith)Admin Username: ").grid(row=0)
+		Label(searchApp, text="(non AD sync)Admin Password: ").grid(row=1)
 		Label(searchApp, text="AD Account: ").grid(row=2)
 
 		v = StringVar()
@@ -969,34 +950,7 @@ class App(tk.Frame):
 			# Click Admin in upper-right
 			selAdmin = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\stars\\admin.png')
 			pyautogui.click((selAdmin))
-			
-			'''
-			# try:
-			# 	WebDriverWait(ie_driver, delay).until(EC.presence_of_element_located(ie_driver.find_element_by_link_text('ADMIN').click()))
-			# except TimeoutException:
-			# 	print("Page took too long to load!")
-
-			# JavaScript test
-			#ie_driver("javascript:document.getElementById('Admin').click()")
-
-			#ie_driver.find_element_by_link_text("ADMIN").click()
-			#ie_driver.find_element_by_id("orionSlCtrl").click()
-			
-			# Click on Admin
-			_clickADMIN = ie_driver.find_element_by_xpath("//*[@type='ADMIN']")
-			_clickADMIN.click()
-			# Another window opens and loads, wait 10s?
-			time.sleep(45)
-			# Window before
-			window_handle_before = ie_driver.window_handles[0]
-			# (opened window) Get window handle
-			window_handle_after = ie_driver.window_handles[1]
-			ie_driver.switch_to.window(window_handle_after)
-			# Click on Users
-			users = ie_driver.find_element_by_link_text("Users").click()
-			time.sleep(2)
-			'''
-	
+				
 	# INTERQUAL
 	def launchInterqual(self):
 		searchApp = Tk()
@@ -1044,17 +998,7 @@ class App(tk.Frame):
 			time.sleep(10)
 
 			ie_driver.close()
-			#ie_driver.implicitly_wait(5)
-			# wait = ui.WebDriverWait(ie_driver, 15)
 
-			# WAIT ON PAGE TO LOAD
-			# try:
-			# 	ie_driver = WebDriverWait(ie_driver, 10).until(
-			# 		EC.presence_of_element_located((By.ID, "userName"))
-			# 	)
-			# finally:
-			# 	time.sleep(10)
-			# 	print("finally!")
 		def clear(self):
 				pass
 	
@@ -1425,7 +1369,7 @@ class App(tk.Frame):
 
 
 		# Forward emails to this account
-		smtpObj.sendmail(SENDER_EMAIL, 'damianforjobs@gmail.com','Subject: Feedback Submitted\n'
+		smtpObj.sendmail(SENDER_EMAIL, 'email@gmail.com','Subject: Feedback Submitted\n'
 							+'\nName: '+str(nameInfo)+'\nEmail Address: '+str(emailAddress)+'\nPhone Number:' + str(phone)
 							+'\n\nComments:\n '+str(comment))
 		
@@ -1518,16 +1462,16 @@ class App(tk.Frame):
 		v.set(1)
 
 		# compound=CENTER, sticky='NSEW',
-		ttk.Radiobutton(master, text = 'McKnight, Susan', command = lambda:self.acwData(), variable = v, value=1).grid(row=0,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Sherman, Joseph', command = lambda:self.acwData(), variable = v, value=2).grid(row=0,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Fox, Rick', command = lambda:self.acwData(), variable = v, value=3).grid(row=0,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Block, Jeffrey',command = lambda:self.acwData(), variable = v, value=4).grid(row=1,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Wright, Tasha',command = lambda:self.acwData(), variable = v, value=5).grid(row=1,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Roberts, James',command = lambda:self.acwData(), variable = v, value=6).grid(row=1,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Kuczmarski, James',command = lambda:self.acwData(), variable = v, value=7).grid(row=2,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Alvira, Andrew',command = lambda:self.acwData(), variable = v, value=8).grid(row=2,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W
-		ttk.Radiobutton(master, text = 'Hoellig, Justin',command = lambda:self.acwData(), variable = v, value=9).grid(row=2,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
-		ttk.Radiobutton(master, text = 'Damian Forbes',command = lambda:self.acwData(), variable = v, value=10).grid(row=3,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)	
+		ttk.Radiobutton(master, text = 'Name', command = lambda:self.acwData(), variable = v, value=1).grid(row=0,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name', command = lambda:self.acwData(), variable = v, value=2).grid(row=0,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name', command = lambda:self.acwData(), variable = v, value=3).grid(row=0,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=4).grid(row=1,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=5).grid(row=1,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=6).grid(row=1,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=7).grid(row=2,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=8).grid(row=2,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=9).grid(row=2,column=3, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
+		ttk.Radiobutton(master, text = 'Name',command = lambda:self.acwData(), variable = v, value=10).grid(row=3,column=1, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)	
 		ttk.Radiobutton(master, text = 'None', command = lambda:self.acwData(), variable = v, value=11).grid(row=3,column=2, sticky='NSEW', padx=5, pady=5)#.pack(anchor=W)
 	
 		mainloop()
