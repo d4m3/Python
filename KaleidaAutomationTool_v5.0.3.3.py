@@ -1433,9 +1433,9 @@ class App(tk.Frame):
 		df.drop(df.index[0], inplace=True)
 		
 		for index, row in df.iterrows():
-			if radioButton == 1 and 'McKnight, Susan':
+			if radioButton == 1 and '<Lastname>, <Firstnam>':
 				print('Anaylst: ',index,row['Avg ACW Time'])
-			elif (v.get()) == 2 and 'Sherman, Joseph':
+			elif (v.get()) == 2 and '<Lastname>, <Firstnam>':
 				print("Joe")
 			else:
 				print("No Option")
@@ -1476,19 +1476,12 @@ class App(tk.Frame):
 	
 		mainloop()
 		# Select Anaylst			
-
 		# Implement a DB to read current ACW times
 		# Separate script to run for these numbers (i.e Metrics excel data, conver to Access?)
 		# Open in separate window?
 		# Using downloaded CMS reports
 		# Pull the xls. data into pandas and convert to xlsx
-
 		##file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_Report.xlsx'
-			
-
-
-
-
 def main():
 	root = Tk()
 	# Window Details
@@ -1503,15 +1496,5 @@ def main():
 	
 if __name__ == "__main__": main()
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
