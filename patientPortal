@@ -71,7 +71,7 @@ class App(tk.Frame):
         # FireFox
 
         # Chrome
-        chromeDriver = "C:\\Users\\dof344\\Desktop\\chromedriver.exe"
+        chromeDriver = "<PATH>"
         os.environ["webdriver.chrome.driver"] = chromeDriver
         chrome_driver = webdriver.Chrome(chromeDriver)
         chrome_driver.get(portal)
@@ -203,10 +203,10 @@ class App(tk.Frame):
         #username_field = ie_driver.find_element_by_id("authUsername")
         #username_field = ie_driver.find_element_by_name("authUsername")
         #username_field.click()
-        #username_field.send_keys("dforbes@kaleidahealth.org")
+        #username_field.send_keys("<PATH>")
 
       #  password_field = ie_driver.find_element_by_id("authPassword")
-      #  password_field.send_keys("Br00klyn#")
+      #  password_field.send_keys("<PATH>")
 
       #  password_field.send_keys(Keys.RETURN)
 
@@ -242,7 +242,7 @@ class App(tk.Frame):
         sheet.columns[5]
         fifthRow = True
 
-        chromeDriver = "C:\\Users\\dof344\\Desktop\\chromedriver.exe"
+        chromeDriver = "C:\\Users\\<PATH>"
         os.environ["webdriver.chrome.driver"] = chromeDriver
         chrome_driver = webdriver.Chrome(chromeDriver)
 
