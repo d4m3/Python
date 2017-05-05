@@ -47,9 +47,9 @@ class App(tk.Frame):
  		self.frame_header.grid()
 
  		#----- LOGO -----
- 		#self.logo1 = PhotoImage(file = 'C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\img\\kale2.png').subsample(2,2)
- 		self.logo1 = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\tada2.png').subsample(2,2) #2,2
- 		self.logo2 = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\kale2.png').subsample(1,1)
+ 		#self.logo1 = PhotoImage(file = '<<PATH>>').subsample(2,2)
+ 		self.logo1 = PhotoImage(file = '<PATH>').subsample(2,2) #2,2
+ 		self.logo2 = PhotoImage(file = '<PATH>').subsample(1,1)
 
  		# Image #006A85
  		ttk.Label(master, image = self.logo1, background = '#f20404', compound = CENTER).grid(row=0, column=1, columnspan=4, sticky='NSEW',ipadx=5,ipady=5)
@@ -193,13 +193,13 @@ class App(tk.Frame):
 			passwordBox = pswdBox.get()
 			
 			## ClearTran Page Behaviour
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\driver\\IEDriverServer.exe")
+			ie_driver = webdriver.Ie("<PATH>")
+			#ie_driver = webdriver.Ie(<PATH>)
 			
 			# Minimize IEDriverServer.exe
 			#webdriverIe.manage().window().set_window_position(-2000,0)
 
-			ie_driver.get('https://cleartran.mellon.com/khs/Login.aspx')
+			ie_driver.get('<PATH>')
 			wait = ui.WebDriverWait(ie_driver,20)
 
 			username_field = ie_driver.find_element_by_id('Username')
@@ -251,7 +251,7 @@ class App(tk.Frame):
 			#update = ie_driver.find_element_by_xpath("//*[@id='user_btnupdate']").click()
 
 			# CREATE A POPUP STATING PASSWORD WAS CHANGED
-			messagebox.showinfo(title = "ClearTran Password Changed", message = 'Password has been changed to:\n\tPassword1')
+			messagebox.showinfo(title = "Password Changed", message = 'Password has been changed to:\n\tPassword1')
 
 			# Sign out of ClearTran
 			signOff = ie_driver.find_element_by_xpath("//*[@id='Menubar_btnLogoff']").click()
@@ -271,9 +271,9 @@ class App(tk.Frame):
 		mainloop()
 	# DIRECTOR COMPATABILITY ISSUES
 	def launchDirector(self):
-		"""ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-		#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\driver\\IEDriverServer.exe")
-		ie_driver.get('http://director.kaleidahealth.org/Director/LogOn.aspx?ReturnUrl=%2fDirector%2f')
+		"""ie_driver = webdriver.Ie("<PATH>")
+		#ie_driver = webdriver.Ie("<PATH>")
+		ie_driver.get('<PATH>')
 		wait = ui.WebDriverWait(ie_driver, 20)
 
 		username_field = ie_driver.find_element_by_id('UserName')
@@ -294,10 +294,10 @@ class App(tk.Frame):
 				proc.kill()
 		"""
 		pass				
-	# PONT CLICK CARE
+	# PCC
 	def launchpcc(self):
 		searchApp = Tk()
-		searchApp.title("Point Click Care Password Reset")
+		searchApp.title("PCC Password Reset")
 		searchApp.geometry("400x125")
 		searchApp.resizable(False,False)
 
@@ -325,9 +325,9 @@ class App(tk.Frame):
 			search = entryBox.get()
 			pswdBox = passwordBox.get()
 
-			portal = 'https://login.pointclickcare.com/home/userLogin.xhtml'
-			chromeDriver = "J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe"
-			#chromeDriver = 'C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\driver\\chromedriver.exe'
+			portal = '<PATH>'
+			chromeDriver = "<PATH>"
+			#chromeDriver = '<PATH>'
 			
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			ie_driver = webdriver.Chrome(chromeDriver)
@@ -391,7 +391,7 @@ class App(tk.Frame):
 			save_button = ie_driver.find_element_by_xpath("//*[@id='sButton']").click()
 						
 			# Message about Password Reset
-			messagebox.showinfo(title = 'Point Click Care', message = 'Password has been changed to:\n\tPassword1')	
+			messagebox.showinfo(title = 'PCC', message = 'Password has been changed to:\n\tPassword1')	
 			ie_driver.set_window_size(100,100)
 			time.sleep(5)
 
@@ -404,7 +404,7 @@ class App(tk.Frame):
 		for proc in psutil.process_iter():
 		 	if proc.name() == PROCNAME:
 		 		proc.kill()
-	# LAWSON LOOKUP
+	# KPASS
 	def launchKpass(self):
 		searchApp = Tk()
 		searchApp.title("Lawson Lookup Portal")
@@ -433,8 +433,8 @@ class App(tk.Frame):
 			search = entryBox.get()
 			pswdBox = passwordBox.get()
 
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			ie_driver.get('https://kalcour/Courion/WebSamples/AccessOptions/HTML/AccountCourier/default.asp?Workflow=SupportStaffLawsonLookup')
+			ie_driver = webdriver.Ie("<PATH>")
+			ie_driver.get('<PATH>')
 			wait = ui.WebDriverWait(ie_driver, 15)
 
 			# Accept Certificate
@@ -503,9 +503,9 @@ class App(tk.Frame):
 			adminUser = adminBox.get()
 			pswdBox = passwordBox.get()
 			searchUser = entryBox.get()
-			#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\driver\\IEDriverServer.exe")
-			portal = 'https://admin.cortext.com/admin-center/#login'
-			chromeDriver = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe'
+			#ie_driver = webdriver.Ie("<PATH>")
+			portal = '<PATH>'
+			chromeDriver = '<PATH>'
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -590,7 +590,7 @@ class App(tk.Frame):
 		Label(searchApp, text="AD Account: ").grid(row=2)
 
 		# LOGO
-		# bg_img = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\anakam_bg.png').subsample(1,1)
+		# bg_img = PhotoImage(file = '<PATH>').subsample(1,1)
 		# bg_img = Label(searchApp, image=bg_img)
 		# bg_img.pack()
 		# # LOGO
@@ -620,8 +620,8 @@ class App(tk.Frame):
 			pswd_Box = pswdBox.get()
 			searchUser = usr_entry.get()
 
-			portal = 'http://vsanatfa01.kaleidahealth.org:8080/tfaadmin/login'
-			chromeDriver = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe'
+			portal = '<PATH>'
+			chromeDriver = '<PATH>'
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -690,8 +690,8 @@ class App(tk.Frame):
 			pswd_Box = passwordBox.get()
 			user = usr.get()
 
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			ie_driver.get('https://kalimpos01.kaleidahealth.org/sso/administrator.html')
+			ie_driver = webdriver.Ie("<PATH>")
+			ie_driver.get('<PATH>')
 			ie_driver.get("javascript:document.getElementById('overridelink').click()")
 
 			wait = ui.WebDriverWait(ie_driver, 15)
@@ -742,10 +742,10 @@ class App(tk.Frame):
 			searcClient = clientEntryBox.get()
 
 			# TODO: login to STARS [application tab > general], if KaleidaScope login not needed got directly
-			portal = 'https://www.csstars.com/Enterprise/login.cmdx?noAuthentication=2&ReturnUrl=%252fEnterprise%252fDefault.aspx'
+			portal = '<PATH>'
 			# TODO: using IE (for now until test in Chrome/FF)
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\IEDriverServer.exe")
+			ie_driver = webdriver.Ie("<PATH>")
+			#ie_driver = webdriver.Ie("<PATH>")
 			ie_driver.get(portal)
 			delay = 3
 			
@@ -880,11 +880,11 @@ class App(tk.Frame):
 	# ANALYST DATA
 	def acwData(self):
 		radioButton = v.get()
-		#file = ('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_Report.html')
-		file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_ReportX.xlsx'
+		#file = ('<PATH>')
+		file = '<PATH>'
 		df = pd.read_excel(file)
-		df.to_excel('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\newACW\\ACW_Report2.xlsx', header=None)
-		df = pd.read_excel('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\newACW\\ACW_Report2.xlsx', index_col=[0,1])
+		df.to_excel('<PATH>', header=None)
+		df = pd.read_excel('<PATH>', index_col=[0,1])
 
 		# ACD Calls - Unnamed:2 |	Avg ACD Time - Unnamed:3 | Avg ACW Time - Unnamed:4 | 
 		# % Agent Occupancy w/o ACW - Unnamed:5 | Extn in Calls - Unnamed:6 | Avg Extn In Time - Unnamed:7 
@@ -957,7 +957,7 @@ class App(tk.Frame):
 def main():
 	root = Tk()
 	# Window Details
-	root.title("KALEIDA TOOLS (beta)")
+	root.title("TOOLS (beta)")
 	root.resizable(True,True)
 	root.geometry("400x350")
 	root.configure(background = '#f20404') #006A85
