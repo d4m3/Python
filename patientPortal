@@ -219,7 +219,7 @@ class App(tk.Frame):
         sheet.columns[3]
         thirdRow = True
 
-        chromeDriver = "C:\\Users\\dof344\\Desktop\\chromedriver.exe"
+        chromeDriver = "<PATH>"
         os.environ["webdriver.chrome.driver"] = chromeDriver
         chrome_driver = webdriver.Chrome(chromeDriver)
 
