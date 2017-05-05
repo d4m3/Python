@@ -60,9 +60,9 @@ class App(tk.Frame):
  		self.frame_header.grid()
 
  		#----- LOGO -----
- 		#self.logo1 = PhotoImage(file = 'C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\img\\kale2.png').subsample(2,2)
- 		self.logo1 = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\tada2.png').subsample(2,2) #2,2
- 		self.logo2 = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\kale2.png').subsample(1,1)
+ 		#self.logo1 = PhotoImage(file = '<PATH>').subsample(2,2)
+ 		self.logo1 = PhotoImage(file = '<PATH>').subsample(2,2) #2,2
+ 		self.logo2 = PhotoImage(file = '<PATH>').subsample(1,1)
 
  		# Image #006A85 #add8e6 #f20404
  		ttk.Label(master, image = self.logo1, background = '#f20404', compound = CENTER).grid(row=0, column=1, columnspan=4, sticky='NSEW',ipadx=5,ipady=5)
@@ -100,7 +100,7 @@ class App(tk.Frame):
 							'Please submit a form to Damian Forbes\n' 
 							'using Feedback feature.'))
  		help_.add_command(label = 'About', command = lambda: messagebox.showinfo(title = '<Author Deatils>',
-							message = 'Basic program to launch Kaleida\'s applications.\nThis program assumes you\'re handling one user at a time!'))
+							message = 'Basic program to launch Tool\'s applications.\nThis program assumes you\'re handling one user at a time!'))
  		# REPORT
  		submit.add_command(label = 'Submit Feedback', command = self.submitForm)
 
@@ -208,9 +208,9 @@ class App(tk.Frame):
 			passwordBox = pswdBox.get()
 			
 			## ClearTran Page Behaviour
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
+			ie_driver = webdriver.Ie("<PATH>")
 
-			ie_driver.get('https://cleartran.mellon.com/khs/Login.aspx')
+			ie_driver.get('<PATH>')
 			wait = ui.WebDriverWait(ie_driver,20)
 
 			username_field = ie_driver.find_element_by_id('Username')
@@ -279,28 +279,6 @@ class App(tk.Frame):
 	
 	# DIRECTOR COMPATABILITY ISSUES
 	def launchDirector(self):
-		"""ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-		#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\Work Documents\\Work Projects\\Work Scripts\\WORKSPACE\\driver\\IEDriverServer.exe")
-		ie_driver.get('http://director.kaleidahealth.org/Director/LogOn.aspx?ReturnUrl=%2fDirector%2f')
-		wait = ui.WebDriverWait(ie_driver, 20)
-
-		username_field = ie_driver.find_element_by_id('UserName')
-		usr = os.getlogin()
-		username_field.send_keys(usr)
-
-		password_field = ie_driver.find_element_by_id('Password')
-		password_field.send_keys('*********')
-		password_field.send_keys(Keys.TAB)
-
-		domain_field = ie_driver.find_element_by_id('Domain')
-		domain_field.send_keys('*******')
-		domain_field.send_keys(Keys.RETURN)
-
-		PROCNAME = "IEDriverServer.exe"
-		for proc in psutil.process_iter():
-			if proc.name() == PROCNAME:
-				proc.kill()
-		"""
 		pass				
 	
 	# PONT CLICK CARE
@@ -332,8 +310,8 @@ class App(tk.Frame):
 			search = entryBox.get()
 			pswdBox = passwordBox.get()
 
-			portal = 'https://login.pointclickcare.com/home/userLogin.xhtml'
-			chromeDriver = "J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe"
+			portal = '<PATH>'
+			chromeDriver = "<PATH>"
 			
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			ie_driver = webdriver.Chrome(chromeDriver)
@@ -438,8 +416,8 @@ class App(tk.Frame):
 			search = entryBox.get()
 			pswdBox = passwordBox.get()
 
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			ie_driver.get('https://kalcour/Courion/WebSamples/AccessOptions/HTML/AccountCourier/default.asp?Workflow=SupportStaffLawsonLookup')
+			ie_driver = webdriver.Ie("<PATH>")
+			ie_driver.get('<PATH>')
 			wait = ui.WebDriverWait(ie_driver, 15)
 
 			# Accept Certificate
@@ -480,8 +458,8 @@ class App(tk.Frame):
 		searchApp.geometry("400x125")
 		searchApp.resizable(False,False)
 		
-		ttk.Label(searchApp,text="(dforbes)Admin username: ").grid(row=0)
-		ttk.Label(searchApp, text="(hint:%) Admin\'s Password: ").grid(row=1)
+		ttk.Label(searchApp,text="Admin username: ").grid(row=0)
+		ttk.Label(searchApp, text="Admin\'s Password: ").grid(row=1)
 		ttk.Label(searchApp, text="User\'s First/Lastname: ").grid(row=2) 
 		
 		# Enable this feature that if selected RESETS the account and grab password/reset procedure
@@ -515,8 +493,8 @@ class App(tk.Frame):
 			pswdBox = passwordBox.get()
 			searchUser = entryBox.get()
 			
-			portal = 'https://admin.cortext.com/admin-center/#login'
-			chromeDriver = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe'
+			portal = '<PATH>'
+			chromeDriver = '<PATH>'
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -555,8 +533,8 @@ class App(tk.Frame):
 			searchUser = entryBox.get()
 			defaultPwd = "Password1"
 						
-			portal = 'https://admin.cortext.com/admin-center/#login'
-			chromeDriver = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe'
+			portal = '<PATH>'
+			chromeDriver = '<PATH>'
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -735,15 +713,15 @@ class App(tk.Frame):
 
 			# --------------- USING PYWINAUTOGUI ---------------
 			# Click Username
-			clickUserName = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\imprivata\\greencheck.png')
+			clickUserName = pyautogui.locateCenterOnScreen('<PATH>')
 			pyautogui.click((clickUserName))	
 			time.sleep(1)
 			# Click Account
-			account = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\imprivata\\account.png')
+			account = pyautogui.locateCenterOnScreen('<PATH>')
 			pyautogui.click((account))			
 			time.sleep(1)
 			# Click Change Password
-			changepassword = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\imprivata\\changepassword.png')
+			changepassword = pyautogui.locateCenterOnScreen('<PATH>')
 			pyautogui.click((changepassword))
 			time.sleep(1)
 			# Password Fields			
@@ -775,7 +753,7 @@ class App(tk.Frame):
 	# ANAKAM
 	def launchAnakam(self):
 		# Add Logo
-		self.anakamLogo = PhotoImage(file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\anakam_bg.png').subsample(2,2) #2,2
+		self.anakamLogo = PhotoImage(file = '<PATH>').subsample(2,2) #2,2
 		# Add Logo
 		
 		searchApp = Tk()
@@ -812,8 +790,8 @@ class App(tk.Frame):
 			pswd_Box = pswdBox.get()
 			searchUser = usr_entry.get()
 
-			portal = 'http://vsanatfa01.kaleidahealth.org:8080/tfaadmin/login'
-			chromeDriver = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe'
+			portal = '<PATH>'
+			chromeDriver = '<PATH>'
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -879,8 +857,8 @@ class App(tk.Frame):
 			pswd_Box = passwordBox.get()
 			user = usr.get()
 
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
-			ie_driver.get('https://kalimpos01.kaleidahealth.org/sso/administrator.html')
+			ie_driver = webdriver.Ie("<PATH>")
+			ie_driver.get('<PATH>')
 			ie_driver.get("javascript:document.getElementById('overridelink').click()")
 
 			wait = ui.WebDriverWait(ie_driver, 15)
@@ -925,9 +903,9 @@ class App(tk.Frame):
 			searchClient = clientEntryBox.get()
 
 			# TODO: login to STARS URL
-			portal = 'https://www.csstars.com/Enterprise/login.cmdx?noAuthentication=2&ReturnUrl=%252fEnterprise%252fDefault.aspx'
+			portal = '<PATH>'
 			# TODO: using IE SilverLight(for now until test in Chrome/FF)
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
+			ie_driver = webdriver.Ie("<PATH>")
 			#ie_driver = webdriver.Ie("C:\\Users\\dof344\\Desktop\\IEDriverServer.exe")
 			ie_driver.get(portal)
 						
@@ -948,7 +926,7 @@ class App(tk.Frame):
 			time.sleep(45)
 			
 			# Click Admin in upper-right
-			selAdmin = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\stars\\admin.png')
+			selAdmin = pyautogui.locateCenterOnScreen('<PATH>')
 			pyautogui.click((selAdmin))
 				
 	# INTERQUAL
@@ -983,8 +961,8 @@ class App(tk.Frame):
 			_pwd = passwordBox.get()
 			_user = userBox.get()
 
-			portal = 'http://vscerme15.kaleidahealth.org/rm/iqm/html/index.html?Admin=N&integration=&appType=CERME&locale=en_US&b2sw=Y&'
-			ie_driver = webdriver.Ie("J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\IEDriverServer.exe")
+			portal = '<PATH>'
+			ie_driver = webdriver.Ie("<PATH>")
 			ie_driver.get(portal)
 
 			adminUsername = ie_driver.find_element_by_xpath("//*[@id='userName']")
@@ -1031,8 +1009,8 @@ class App(tk.Frame):
 			user = entryBox.get()
 			passwordBox = pswdBox.get()
 
-			portal = 'http://vsbmmp01.kaleidahealth.org/'
-			chromeDriver = "J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe"
+			portal = '<PATH>'
+			chromeDriver = "<PATH>"
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			chrome_driver = webdriver.Chrome(chromeDriver)
 			chrome_driver.get(portal)
@@ -1114,11 +1092,11 @@ class App(tk.Frame):
 	def launchInfoclique(self):
 		# Use JavaScript Selector feature Section 8 essential JS training
 		searchApp = Tk()
-		searchApp.title("Kaleidascope/Infoclique Password Reset")
+		searchApp.title("Password Reset")
 		searchApp.geometry("400x125")
 		searchApp.resizable(False,False)
 
-		Label(searchApp, text="(AD) Admin Password: ").grid(row=0)
+		Label(searchApp, text="Admin Password: ").grid(row=0)
 		Label(searchApp, text="User\'s First/Lastname: ").grid(row=1)
 		
 		v = StringVar()
@@ -1157,11 +1135,11 @@ class App(tk.Frame):
 			# Join with a comma
 			find_user = ", ".join(split_user2)
 
-			portal = 'http://kaleidascope/Applications/Login.aspx'
-			portal2 = 'http://kaleidascope/SessionMgr/AppFrame.aspx?APPID=83'
+			portal = '<PATH>'
+			portal2 = '<PATH>'
 
 			# Start: Using Chrome Driver
-			chromeDriver = "J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\driver\\chromedriver.exe"
+			chromeDriver = "<PATH>"
 			os.environ["webdriver.chrome.driver"] = chromeDriver
 			ie_driver = webdriver.Chrome(chromeDriver)
 			ie_driver.get(portal)
@@ -1183,7 +1161,7 @@ class App(tk.Frame):
 			time.sleep(3)
 			
 			# Take a screenshot of imaage and use loC to find
-			selUser = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\infoclique\\selectUser.png')
+			selUser = pyautogui.locateCenterOnScreen('<PATH>')
 			
 			pyautogui.click((selUser))
 			time.sleep(1)
@@ -1192,12 +1170,12 @@ class App(tk.Frame):
 			pyautogui.click()
 			time.sleep(1)
 			
-			resetPassword = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\infoclique\\resetpassword.png')
+			resetPassword = pyautogui.locateCenterOnScreen('<PATH>')
 			pyautogui.click((resetPassword))
 			
 			time.sleep(5)
 			
-			clickYes = pyautogui.locateCenterOnScreen('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\img\\pyautoGUI\\infoclique\\yes.png')			
+			clickYes = pyautogui.locateCenterOnScreen('<PATH>')			
 			pyautogui.click((clickYes))
 			time.sleep(10)
 			ie_driver.close()
@@ -1210,13 +1188,13 @@ class App(tk.Frame):
 			''' ******* Development Notes *************:
 			# Only need page to login. Disregard below if don't need secured application page
 			#time.sleep(2)
-			# Go To Application Tab http://kaleidascope/applications/, CSS Selector
-			#applicationTab = ie_driver.get('http://kaleidascope/applications/')
+			# Go To Application Tab <PATH>, CSS Selector
+			#applicationTab = ie_driver.get('<PATH>')
 			#ie_driver.find_element_by_xpath("//*[href='/applications']").click()
 			appTab = ie_driver.find_element_by_css_selector("#tabs > td:nth-child(3) > table:nth-child(1) > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1) > a:nth-child(6) > img:nth-child(1)")
 			appTab.click()			
 			main_window = ie_driver.window_handles[0]
-			pswdResetLink = ie_driver.find_element_by_link_text("KaleidaScope/InfoClique Password Reset")
+			pswdResetLink = ie_driver.find_element_by_link_text("<PATH>")
 			pswdResetLink.click()
 			opened_window = ie_driver.window_handles[1]
 			time.sleep(3)
@@ -1402,11 +1380,11 @@ class App(tk.Frame):
 	# ANALYST DATA
 	def acwData(self):
 		radioButton = v.get()
-		#file = ('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_Report.html')
-		file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_ReportX.xlsx'
+		#file = ('<PATH>')
+		file = '<PATH>'
 		df = pd.read_excel(file)
-		df.to_excel('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\newACW\\ACW_Report2.xlsx', header=None)
-		df = pd.read_excel('J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\newACW\\ACW_Report2.xlsx', index_col=[0,1])
+		df.to_excel('<PATH>', header=None)
+		df = pd.read_excel('<PATH>', index_col=[0,1])
 
 		# ACD Calls - Unnamed:2 |	Avg ACD Time - Unnamed:3 | Avg ACW Time - Unnamed:4 | 
 		# % Agent Occupancy w/o ACW - Unnamed:5 | Extn in Calls - Unnamed:6 | Avg Extn In Time - Unnamed:7 
@@ -1481,7 +1459,7 @@ class App(tk.Frame):
 		# Open in separate window?
 		# Using downloaded CMS reports
 		# Pull the xls. data into pandas and convert to xlsx
-		##file = 'J:\\Information Systems & Technology\\ALL IS&T\\dof_Workspace\\ACW Reports\\ACW_Report.xlsx'
+		##file = '<PATH>'
 def main():
 	root = Tk()
 	# Window Details
