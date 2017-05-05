@@ -196,7 +196,7 @@ class App(tk.Frame):
 	# Issue with logging into page
         # http: // stackoverflow.com / questions / 21330079 / i - o - exception - and -unable - to - find - element - in -ie - using - selenium - webdriver / 21373224  # 21373224
 
-        # TODO: Click Sign in
+        # TODO: Click Sign in 
 
         #time.sleep(7)
 
