@@ -897,7 +897,7 @@ class App(tk.Frame):
 		Button(searchApp, text="Clear", command=lambda:clear()).grid(row=2,column=2,padx=5,pady=5)
 
 		def callback():
-			defaultID = 'K525'
+			defaultID = '<default ID>'
 			loginAdmin = os.getlogin()
 			loginPwd = pwdEntryBox.get()
 			searchClient = clientEntryBox.get()
