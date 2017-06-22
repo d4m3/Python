@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% load static from staticfiles %}
+
+{% load thought_tags %}
+
+{% block title %}Dashboard | {{ block.super }}{% endblock %}
+
+{% block content %}
+<!-- Displays past Condition(s) -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Recent Thoughts</h2>
+                <div class="list-group">
+                    {% for thought in user.thoughts.all %}
+                        <div class="list-group-item">
+                            <h4 class="list-group-item-heading">
+                                <time class="pull-right small" datetime="{{ thought.recorded_at }}">{{ thought.recorded_at|date:"SHORT_DATE_FORMAT"}}</time>
+                                {{ thought.get_condition_display }}
+                            </h4>
+                            {% if thought.notes %} {{ thought.notes|linebreaks }} {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                {% thought_form %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="ct-chart ct-perfect-fourth"></div>
+               <!-- Display labels, but hidden due to layout
+                {% chart_data as email%}
+                {{ email }}-->
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{%  block css %}
+    <link rel="stylesheet" href="{% static 'js/chartist/chartist.min.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/stretchy.js' %}" data-filter="#id_notes" async></script>
+    <script src="{% static 'js/chartist/chartist.min.js' %}"></script>
+
+    <!-- http://gionkunz.github.io/chartist-js/examples.html -->
+    <script>
+        {% chart_data as data %}
+        var data ={{ data|safe }};
+        new Chartist.Line('.ct-chart', data);
+    </script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
