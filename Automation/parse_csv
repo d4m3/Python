@@ -1,0 +1,28 @@
+# https://www.youtube.com/watch?v=bkpLhQd6YQM
+# Parsing CSV to HTML
+import csv
+
+html_output = ''
+names = []
+
+with open('mockdata.csv', 'r') as data_file:
+    csv_data = csv.DictReader(data_file)
+
+    # Disregard first line as bad data
+    next(csv_data)
+
+    for line in csv_data:
+        if line['first_name'] == 'Do not show':
+            break
+        names.append(f"{line['first_name']} {line['last_name']}")
+
+html_output += f'<p>There are currently {len(names)} in this file.</p>\n'
+
+html_output += '\n<ul>'
+
+for name in names:
+    html_output += f'\n\t<li>{name}</li>'
+
+html_output += '\n</ul>'
+
+print(html_output)
