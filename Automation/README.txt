@@ -1,5 +1,6 @@
 userRegistration 
   Used to process invites from excel file
+  Used openpyxl
 
 khAutomation
   Used in KH Environment to automate day-to-day task
