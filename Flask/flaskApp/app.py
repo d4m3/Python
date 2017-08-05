@@ -25,7 +25,7 @@ app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'myflaskapp'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
-# Config Flask Mail/ Use Credential File for USERNAME/PASSWORD
+# Config Flask Mail/Use Credential File for USERNAME/PASSWORD
 # http://pythonhosted.org/flask-mail/
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465 # gmail SSL
@@ -376,25 +376,12 @@ def send_mail():
 # send configuration to submitted email
 
 
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == '__main__':
 	# Make this key more secure
 	app.secret_key='secret123'
 	app.run(debug=True)
+
+	
+	
+	
